@@ -176,12 +176,18 @@ const updatedBook = {
   //adding a new property
   moviePublicationDate: "2001-12-19",
   //overiding an existing property
-  pages: 1300,
+  // pages: 1300,
 };
 updatedBook;
 
 // template literals
 const summary = `${title} is a ${pages}-page long book, that was written by ${author} and published in ${
   publicationDate.split("-")[0]
-}`;
+}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
 summary;
+
+//ternary operator - used instead of if-else
+const pagesRange = pages > 1000 ? "over a 1000" : "less than a 1000";
+pagesRange;
+
+console.log(`The book has ${pagesRange} pages`);
