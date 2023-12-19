@@ -145,7 +145,7 @@ function getBook(id) {
 
 // destructuring
 
-const book = getBook(1);
+const book = getBook(2);
 book;
 
 // const title = book.title;
@@ -180,10 +180,12 @@ const updatedBook = {
 };
 updatedBook;
 
+const getYear = (str) => str.split("-")[0];
+
 // template literals
-const summary = `${title} is a ${pages}-page long book, that was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
+const summary = `${title} is a ${pages}-page long book, that was written by ${author} and published in ${getYear(
+  publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
 summary;
 
 //ternary operator - used instead of if-else
@@ -192,8 +194,24 @@ pagesRange;
 
 console.log(`The book has ${pagesRange} pages`);
 
-// ARROW FUNCTIONS - helpful for one line function
+// short circuiting and logical operators
+console.log(false && "some string");
+console.log(hasMovieAdaptation && "This book has a movie");
+//falsy value: 0, '', null, undefined
+console.log("banele" && "Some string");
+console.log(null && "some string");
 
-const getYear = (str) => str.split("-")[0];
+console.log(true || "some string");
+console.log(false || "some string");
 
-console.log(getYear(publicationDate));
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSALATED";
+spanishTranslation;
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong;
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
