@@ -259,5 +259,18 @@ adventureBooks;
 
 // array reduce method
 
-const allPages = books.reduce((acc, book) => acc + book.pages, 0);
+const allPages = books.reduce((sum, book) => sum + book.pages, 0);
 allPages;
+
+// array sort method - mutates the original array
+// use slice to make a copy of the array so that the original stays the same
+const someArr = [3, 1, 4, 5, 6, 9, 2];
+const sortedAsc = someArr.slice().sort((a, b) => a - b); // sort ascendingly but
+const sortedDec = someArr.slice().sort((a, b) => b - a); // sort ascendingly
+someArr;
+
+const pageNums = books.map((book) => book.pages).sort((a, b) => a - b);
+pageNums;
+
+sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortedByPages;
