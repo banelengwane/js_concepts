@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // destructuring
-
+/*
 const book = getBook(3);
 book;
 
@@ -216,10 +216,30 @@ spanishTranslation;
 // const count = book.reviews.librarything.reviewsCount ?? "no data";
 // count;
 
+
+
+console.log(getTotalReviewCount(book));
+*/
+
 function getTotalReviewCount(book) {
-  const goodReads = book.reviews.goodreads.reviewsCount;
-  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  const goodReads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
   return goodReads + librarything;
 }
 
-console.log(getTotalReviewCount(book));
+// functional array methods
+const books = getBooks();
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+x;
+
+//use map to get the titles of the books
+const titlesArr = books.map((book) => book.title);
+titlesArr;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+essentialData;
