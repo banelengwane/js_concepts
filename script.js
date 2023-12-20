@@ -219,7 +219,7 @@ spanishTranslation;
 
 
 console.log(getTotalReviewCount(book));
-*/
+
 
 function getTotalReviewCount(book) {
   const goodReads = book.reviews?.goodreads?.reviewsCount;
@@ -295,3 +295,10 @@ const booksAfterUpdate = booksAfterDel.map((book) =>
   book.id === 1 ? { ...book, pages: 1500 } : book
 );
 booksAfterUpdate;
+*/
+
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+console.log("banele");
